@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1ay34olyl5cs"]
+
+[ext_resource type="Script" path="res://Scripts/Chechik.gd" id="1_3abp3"]
+[ext_resource type="Texture2D" uid="uid://dpf8yenf58jvv" path="res://амогус.png" id="2_c3sgw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apgtx"]
+size = Vector2(20, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4j3g"]
+size = Vector2(253.5, 197.5)
+
+[node name="Main" type="Node"]
+
+[node name="Chechik" type="CharacterBody2D" parent="."]
+position = Vector2(588, 285)
+script = ExtResource("1_3abp3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Chechik"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_c3sgw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chechik"]
+shape = SubResource("RectangleShape2D_apgtx")
+
+[node name="Граунд" type="StaticBody2D" parent="."]
+position = Vector2(597, 315)
+
+[node name="Sprite2D" type="Sprite2D" parent="Граунд"]
+position = Vector2(-14, 83)
+rotation = 1.5708
+texture = ExtResource("2_c3sgw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Граунд"]
+position = Vector2(-13.75, 83.25)
+shape = SubResource("RectangleShape2D_q4j3g")
