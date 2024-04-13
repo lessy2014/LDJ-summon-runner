@@ -9,8 +9,8 @@ const CHECHIK_START_POS := Vector2i(142, 438)
 const CAM_START_POS := Vector2i(576, 324)
 
 var speed : float
-const START_SPEED : float = 5.0
-const MAX_SPEED : int = 25
+const START_SPEED : float = 12.5
+const MAX_SPEED : int = 50
 var screen_size : Vector2i
 var obstacles : Array
 var last_obstacle
@@ -19,6 +19,7 @@ var last_obstacle
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Engine.max_fps = 60
 	screen_size = get_window().size
 	new_game()
 
