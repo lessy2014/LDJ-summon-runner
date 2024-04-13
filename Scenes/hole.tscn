@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://blt4bc21bwrlh"]
+
+[ext_resource type="Texture2D" uid="uid://dpf8yenf58jvv" path="res://амогус.png" id="1_myhkw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxa8y"]
+size = Vector2(252.719, 193.208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouvny"]
+size = Vector2(570, 151)
+
+[node name="Hole" type="Area2D"]
+position = Vector2(886, 454)
+
+[node name="Left" type="StaticBody2D" parent="."]
+position = Vector2(-783, -454)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2(497, 384)
+rotation = -1.22173
+shape = SubResource("RectangleShape2D_bxa8y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Left"]
+position = Vector2(493, 385)
+rotation = 0.349066
+texture = ExtResource("1_myhkw")
+
+[node name="Right" type="StaticBody2D" parent="."]
+position = Vector2(-576, -454)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2(1009, 379)
+rotation = 1.22173
+shape = SubResource("RectangleShape2D_bxa8y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Right"]
+position = Vector2(1007, 381)
+rotation = -0.349066
+texture = ExtResource("1_myhkw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(83, -48)
+shape = SubResource("RectangleShape2D_ouvny")

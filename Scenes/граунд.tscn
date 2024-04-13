@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://jo2t168lmn2o"]
+
+[ext_resource type="Texture2D" uid="uid://dpf8yenf58jvv" path="res://амогус.png" id="1_5f3es"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4j3g"]
+size = Vector2(2530, 198.5)
+
+[node name="Граунд" type="StaticBody2D"]
+position = Vector2(143, 465)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1121.51, 83.9066)
+rotation = 1.5708
+scale = Vector2(0.999053, 9.95655)
+texture = ExtResource("1_5f3es")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1122, 83.75)
+shape = SubResource("RectangleShape2D_q4j3g")

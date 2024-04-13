@@ -4,8 +4,9 @@
 [ext_resource type="Script" path="res://Scripts/Chechik.gd" id="1_3abp3"]
 [ext_resource type="Texture2D" uid="uid://dpf8yenf58jvv" path="res://амогус.png" id="2_c3sgw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_apgtx"]
-size = Vector2(101, 99)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yljuh"]
+radius = 49.0
+height = 110.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4j3g"]
 size = Vector2(2530, 198.5)
@@ -23,8 +24,8 @@ scale = Vector2(0.509596, 0.388583)
 texture = ExtResource("2_c3sgw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chechik"]
-position = Vector2(-40.5, -36.5)
-shape = SubResource("RectangleShape2D_apgtx")
+position = Vector2(-39, -35)
+shape = SubResource("CapsuleShape2D_yljuh")
 
 [node name="Граунд" type="StaticBody2D" parent="."]
 position = Vector2(143, 465)

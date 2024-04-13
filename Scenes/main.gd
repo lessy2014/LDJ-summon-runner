@@ -2,7 +2,8 @@ extends Node
 
 
 var jump_wall = preload("res://Scenes/jump_wall.tscn")
-var obstacle_types = [jump_wall]
+var hole = preload("res://Scenes/hole.tscn")
+var obstacle_types = [jump_wall, hole]
 #База
 const CHECHIK_START_POS := Vector2i(142, 438)
 const CAM_START_POS := Vector2i(576, 324)
@@ -40,11 +41,11 @@ func _process(delta):
 		$"Граунд".position.x += screen_size.x
 		
 func generate_obs():
-	if obstacles.is_empty() or last_obstacle.position.x < $Chechik.position.x + randi_range(-300, -100):
+	if obstacles.is_empty() or last_obstacle.position.x < $Chechik.position.x + randi_range(-700, -500):
 		var obstacle_type = obstacle_types[randi_range(0, obstacle_types.size() - 1)]
 		var obstacle = obstacle_type.instantiate()
 		obstacle.body_entered.connect(hit_obstacle)
-		obstacle.position = Vector2i(1200 + $Chechik.position.x, 340)
+		obstacle.position = Vector2i(1200 + $Chechik.position.x, 500)
 		add_child(obstacle)
 		obstacles.append(obstacle)
 		last_obstacle = obstacle
