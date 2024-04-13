@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 var meduse = preload("res://Scenes/meduse.tscn")
+var мышмышползет = preload("res://Scenes/мышмышползет.tscn")
+var мышмышужеползет = false
 var summons : Array
 var last_summon
 
@@ -47,7 +49,21 @@ func _physics_process(delta):
 		meduse.queue_free()
 		summons.erase(meduse)
 		
-		
+	if Input.is_action_just_pressed("ui_down") and is_on_floor():
+		if not мышмышужеползет:
+			мышмышужеползет = true
+			var мышмышползет = мышмышползет.instantiate()
+			мышмышползет.position = Vector2i (50 + position.x, 440)
+			мышмышползет.velocity.x = 1250
+			main_scene.add_child(мышмышползет)
+			summons.append(мышмышползет)
+			last_summon = мышмышползет
+			await get_tree().create_timer(1.5).timeout
+			var newposition = мышмышползет.position
+			position = newposition
+			мышмышползет.queue_free()
+			мышмышужеползет = false
+			
 	move_and_slide()
 		
 func hit_meduse(body):

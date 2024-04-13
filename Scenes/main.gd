@@ -3,7 +3,8 @@ extends Node
 
 var jump_wall = preload("res://Scenes/jump_wall.tscn")
 var hole = preload("res://Scenes/hole.tscn")
-var obstacle_types = [jump_wall, hole]
+var мышстенакродется = preload("res://Scenes/мышстенакродется.tscn")
+var obstacle_types = [jump_wall, мышстенакродется]
 #База
 const CHECHIK_START_POS := Vector2i(142, 438)
 const CAM_START_POS := Vector2i(576, 324)
@@ -58,3 +59,5 @@ func remove_obstacle(obstacle):
 func hit_obstacle(body):
 	if body.name == "Chechik":
 		print("Collision")
+
+
