@@ -9,11 +9,11 @@ size = Vector2(199, 259)
 position = Vector2(520, 320)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.00049, -188.468)
+position = Vector2(-0.999512, -188.468)
 rotation = 3.14159
 scale = Vector2(1, 1.4845)
 texture = ExtResource("1_ly12y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.500488, -129.437)
+position = Vector2(-1.49951, -129.437)
 shape = SubResource("RectangleShape2D_rv20d")
