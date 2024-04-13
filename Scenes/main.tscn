@@ -12,7 +12,7 @@ size = Vector2(253.5, 197.5)
 [node name="Main" type="Node"]
 
 [node name="Chechik" type="CharacterBody2D" parent="."]
-position = Vector2(588, 285)
+position = Vector2(796, 111)
 script = ExtResource("1_3abp3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Chechik"]
@@ -23,7 +23,7 @@ texture = ExtResource("2_c3sgw")
 shape = SubResource("RectangleShape2D_apgtx")
 
 [node name="Граунд" type="StaticBody2D" parent="."]
-position = Vector2(597, 315)
+position = Vector2(805, 141)
 
 [node name="Sprite2D" type="Sprite2D" parent="Граунд"]
 position = Vector2(-14, 83)
