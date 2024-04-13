@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnn12v0tahjxn"]
+
+[ext_resource type="Texture2D" uid="uid://dpf8yenf58jvv" path="res://амогус.png" id="1_ly12y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rv20d"]
+size = Vector2(199, 259)
+
+[node name="JumpWall" type="Area2D"]
+position = Vector2(520, 320)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.37928e-06, -61.5317)
+rotation = 3.14159
+scale = Vector2(1, 1.4845)
+texture = ExtResource("1_ly12y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -2.5)
+shape = SubResource("RectangleShape2D_rv20d")

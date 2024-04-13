@@ -1,13 +1,18 @@
 extends Node
 
+
+var jump_wall = preload("res://Scenes/jump_wall.tscn")
+var obstacle_types = [jump_wall]
 #База
 const CHECHIK_START_POS := Vector2i(142, 438)
 const CAM_START_POS := Vector2i(576, 324)
 
 var speed : float
-const START_SPEED : float = 10.0
+const START_SPEED : float = 5.0
 const MAX_SPEED : int = 25
 var screen_size : Vector2i
+var obstacles : Array
+var last_obstacle
 
 
 
@@ -27,6 +32,27 @@ func _process(delta):
 	
 	$Chechik.position.x += speed
 	$Camera2D.position.x += speed
-	
+	generate_obs()
+	for obs in obstacles:
+		if (obs.position.x < ($Camera2D.position.x - screen_size.x)):
+			remove_obstacle(obs)
 	if $Camera2D.position.x - $"Граунд".position.x > screen_size.x * 1.5:
 		$"Граунд".position.x += screen_size.x
+		
+func generate_obs():
+	if obstacles.is_empty() or last_obstacle.position.x < $Chechik.position.x + randi_range(-300, -100):
+		var obstacle_type = obstacle_types[randi_range(0, obstacle_types.size() - 1)]
+		var obstacle = obstacle_type.instantiate()
+		obstacle.body_entered.connect(hit_obstacle)
+		obstacle.position = Vector2i(1200 + $Chechik.position.x, 340)
+		add_child(obstacle)
+		obstacles.append(obstacle)
+		last_obstacle = obstacle
+		
+func remove_obstacle(obstacle):
+	obstacle.queue_free()
+	obstacles.erase(obstacle)
+	
+func hit_obstacle(body):
+	if body.name == "Chechik":
+		print("Collision")
