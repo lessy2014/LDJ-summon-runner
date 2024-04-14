@@ -1,12 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1ay34olyl5cs"]
+[gd_scene load_steps=11 format=3 uid="uid://c1ay34olyl5cs"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1c4fk"]
 [ext_resource type="Script" path="res://Scripts/Chechik.gd" id="1_3abp3"]
 [ext_resource type="Texture2D" uid="uid://dpf8yenf58jvv" path="res://амогус.png" id="2_c3sgw"]
+[ext_resource type="Texture2D" uid="uid://bexu81lvejljn" path="res://Чечик/Чечик idle/Чечик idle-Sheet.png" id="4_81xiq"]
 [ext_resource type="AudioStream" uid="uid://cg2kwoy6522t4" path="res://пупа и лупа.mp3" id="4_t22e2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4j3g"]
 size = Vector2(2530, 198.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmd5u"]
+atlas = ExtResource("4_81xiq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn203"]
+atlas = ExtResource("4_81xiq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gnamk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmd5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn203")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yljuh"]
 radius = 49.0
@@ -35,14 +58,14 @@ script = ExtResource("1_3abp3")
 [node name="Camera2D" type="Camera2D" parent="Chechik"]
 position = Vector2(444, -114)
 
-[node name="Sprite2D" type="Sprite2D" parent="Chechik"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Chechik"]
 z_index = 1
-position = Vector2(-40.55, -36.65)
-scale = Vector2(0.509596, 0.388583)
-texture = ExtResource("2_c3sgw")
+position = Vector2(-0.999996, -46)
+scale = Vector2(4.5673, 3.48271)
+sprite_frames = SubResource("SpriteFrames_gnamk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chechik"]
-position = Vector2(-39, -35)
+position = Vector2(-6, -41)
 shape = SubResource("CapsuleShape2D_yljuh")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Chechik"]

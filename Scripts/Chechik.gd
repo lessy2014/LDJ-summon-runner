@@ -62,13 +62,13 @@ func _physics_process(delta):
 			мышмышужеползет = true
 			var мышмышползет = мышмышползет.instantiate()
 			мышмышползет.position = Vector2i (50 + position.x, 440)
-			мышмышползет.velocity.x = 1000
+			мышмышползет.velocity.x = 1200
 			main_scene.add_child(мышмышползет)
 			summons.append(мышмышползет)
 			last_summon = мышмышползет
 			remove_child(camera)
 			мышмышползет.add_child(camera)
-			await get_tree().create_timer(1).timeout
+			await get_tree().create_timer(0.75).timeout
 			мышмышползет.remove_child(camera)
 			add_child(camera)
 			var newposition = мышмышползет.position
@@ -80,7 +80,7 @@ func _physics_process(delta):
 		if not rhino_spawned:
 			rhino_spawned = true 
 			var rhino = rhino.instantiate()
-			rhino.position = Vector2i (50 + position.x, 440)
+			rhino.position = Vector2i (80 + position.x, 440)
 			rhino.velocity.x = 2000
 			main_scene.add_child(rhino)
 			summons.append(rhino)
