@@ -1,13 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1ay34olyl5cs"]
+[gd_scene load_steps=25 format=3 uid="uid://c1ay34olyl5cs"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1c4fk"]
 [ext_resource type="Script" path="res://Scripts/Chechik.gd" id="1_3abp3"]
 [ext_resource type="Texture2D" uid="uid://dpf8yenf58jvv" path="res://амогус.png" id="2_c3sgw"]
+[ext_resource type="Texture2D" uid="uid://dorohf83ni26f" path="res://Чечик/Death/Чечик death-Sheet.png" id="4_8sp1f"]
 [ext_resource type="Texture2D" uid="uid://bexu81lvejljn" path="res://Чечик/Чечик idle/Чечик idle-Sheet.png" id="4_81xiq"]
 [ext_resource type="AudioStream" uid="uid://cg2kwoy6522t4" path="res://пупа и лупа.mp3" id="4_t22e2"]
+[ext_resource type="Texture2D" uid="uid://dbvxoewoga73p" path="res://Чечик/Jump/Чечик-Sheet.png" id="5_rcu4i"]
+[ext_resource type="Texture2D" uid="uid://cdocb0qb766ap" path="res://Чечик/Jump bird/Чечик птица-Sheet.png" id="7_j73o6"]
+[ext_resource type="Texture2D" uid="uid://bt8cal7iiqp5k" path="res://Чечик/Running/чечик running-Sheet.png" id="8_yfckv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4j3g"]
 size = Vector2(2530, 198.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lk8i"]
+atlas = ExtResource("4_8sp1f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eaq78"]
+atlas = ExtResource("4_8sp1f")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efloy"]
+atlas = ExtResource("4_8sp1f")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qmd5u"]
 atlas = ExtResource("4_81xiq")
@@ -17,8 +33,50 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("4_81xiq")
 region = Rect2(32, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8h3o"]
+atlas = ExtResource("5_rcu4i")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rykga"]
+atlas = ExtResource("7_j73o6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d61rg"]
+atlas = ExtResource("7_j73o6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi6sh"]
+atlas = ExtResource("8_yfckv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi1gu"]
+atlas = ExtResource("8_yfckv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5wue"]
+atlas = ExtResource("8_yfckv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1hes"]
+atlas = ExtResource("8_yfckv")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_gnamk"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lk8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eaq78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efloy")
+}],
+"loop": true,
+"name": &"death",
+"speed": 2.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qmd5u")
@@ -27,7 +85,43 @@ animations = [{
 "texture": SubResource("AtlasTexture_tn203")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8h3o")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rykga")
+}, {
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_d61rg")
+}],
+"loop": true,
+"name": &"jump bird",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oi6sh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi1gu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5wue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1hes")
+}],
+"loop": true,
+"name": &"running",
 "speed": 5.0
 }]
 
@@ -63,6 +157,8 @@ z_index = 1
 position = Vector2(-0.999996, -46)
 scale = Vector2(4.5673, 3.48271)
 sprite_frames = SubResource("SpriteFrames_gnamk")
+animation = &"jump"
+autoplay = "running"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chechik"]
 position = Vector2(-6, -41)

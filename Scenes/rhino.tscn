@@ -1,7 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1b5trkv6ojx1"]
+[gd_scene load_steps=9 format=3 uid="uid://d1b5trkv6ojx1"]
 
 [ext_resource type="Script" path="res://Scripts/rhino.gd" id="1_jp6ph"]
-[ext_resource type="Texture2D" uid="uid://cy77iaqve2egr" path="res://мыш.jpg" id="2_hhbku"]
+[ext_resource type="Texture2D" uid="uid://ctt0aq3deisc7" path="res://Слон/Слон-Sheet.png" id="2_52i7t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0gly"]
+atlas = ExtResource("2_52i7t")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yx526"]
+atlas = ExtResource("2_52i7t")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd4kk"]
+atlas = ExtResource("2_52i7t")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us1u0"]
+atlas = ExtResource("2_52i7t")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tnhgg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0gly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yx526")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xd4kk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us1u0")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgm5j"]
 size = Vector2(48.75, 57.625)
@@ -10,10 +46,12 @@ size = Vector2(48.75, 57.625)
 position = Vector2(578, 315)
 script = ExtResource("1_jp6ph")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.625122, -6.80859)
-scale = Vector2(0.101774, 0.101774)
-texture = ExtResource("2_hhbku")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(101, -77)
+scale = Vector2(8.51563, 8.51563)
+sprite_frames = SubResource("SpriteFrames_tnhgg")
+animation = &"new_animation"
+autoplay = "new_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.625122, -6.83859)
