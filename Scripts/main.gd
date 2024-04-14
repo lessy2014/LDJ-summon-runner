@@ -16,6 +16,7 @@ var screen_size : Vector2i
 var obstacles : Array
 var last_obstacle
 var chechik
+var music
 
 
 
@@ -27,6 +28,8 @@ func _ready():
 
 func new_game():
 	chechik = $Chechik
+	music = chechik.get_node("Music")
+	music.play()
 	chechik.position = CHECHIK_START_POS 
 	chechik.velocity = Vector2i(0,0)
 	$Граунд.position = Vector2i(143,465)
@@ -69,6 +72,7 @@ func remove_obstacle(obstacle):
 func hit_obstacle(body):
 	if body.name == "Chechik":
 		print("Collision")
+		music.stop()
 		speed = 0
 		print("Game over kind of")
 		print("Press space to restart")
