@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c1ay34olyl5cs"]
+[gd_scene load_steps=28 format=3 uid="uid://c1ay34olyl5cs"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1c4fk"]
 [ext_resource type="Script" path="res://Scripts/Chechik.gd" id="1_3abp3"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dbvxoewoga73p" path="res://Чечик/Jump/Чечик-Sheet.png" id="5_rcu4i"]
 [ext_resource type="Texture2D" uid="uid://cdocb0qb766ap" path="res://Чечик/Jump bird/Чечик птица-Sheet.png" id="7_j73o6"]
 [ext_resource type="Texture2D" uid="uid://bt8cal7iiqp5k" path="res://Чечик/Running/чечик running-Sheet.png" id="8_yfckv"]
+[ext_resource type="Texture2D" uid="uid://c1sduil8gjb2v" path="res://чечик палку держит.png" id="9_y5667"]
+[ext_resource type="PackedScene" uid="uid://cauquano227ts" path="res://Scenes/hud.tscn" id="11_kmjxm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4j3g"]
 size = Vector2(2530, 198.5)
@@ -60,6 +62,10 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1hes"]
 atlas = ExtResource("8_yfckv")
 region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj1oc"]
+atlas = ExtResource("9_y5667")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gnamk"]
 animations = [{
@@ -123,6 +129,14 @@ animations = [{
 "loop": true,
 "name": &"running",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj1oc")
+}],
+"loop": true,
+"name": &"spawn",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yljuh"]
@@ -154,10 +168,10 @@ position = Vector2(444, -114)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Chechik"]
 z_index = 1
-position = Vector2(-0.999996, -46)
+position = Vector2(-0.999992, -43)
 scale = Vector2(4.5673, 3.48271)
 sprite_frames = SubResource("SpriteFrames_gnamk")
-animation = &"jump"
+animation = &"spawn"
 autoplay = "running"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chechik"]
@@ -167,3 +181,5 @@ shape = SubResource("CapsuleShape2D_yljuh")
 [node name="Music" type="AudioStreamPlayer2D" parent="Chechik"]
 position = Vector2(445, -108)
 stream = ExtResource("4_t22e2")
+
+[node name="HUD" parent="." instance=ExtResource("11_kmjxm")]

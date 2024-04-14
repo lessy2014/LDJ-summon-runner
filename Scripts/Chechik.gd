@@ -34,6 +34,7 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_up") and is_on_floor() and main_scene.speed != 0:
+
 		sprite_2d.animation = "jump"
 		velocity.y = JUMP_VELOCITY
 		var meduse = meduse.instantiate()

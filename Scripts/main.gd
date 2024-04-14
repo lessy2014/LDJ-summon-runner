@@ -9,6 +9,8 @@ var obstacle_types = [jump_wall, hole, мышстенакродется, rhino_w
 #База
 const CHECHIK_START_POS := Vector2i(142, 438)
 
+var score : int
+const Score_modifier : int = 10
 var speed : float
 const START_SPEED : float = 12.5
 const MAX_SPEED : int = 50
@@ -28,6 +30,7 @@ func _ready():
 	new_game()
 
 func new_game():
+	score = 0
 	chechik = $Chechik
 	music = chechik.get_node("Music")
 	music.play()
@@ -45,6 +48,14 @@ func _process(delta):
 			remove_obstacle(obs)
 	if chechik.position.x - $"Граунд".position.x > screen_size.x:
 		$"Граунд".position.x += screen_size.x
+		
+		# Warning Даша влезла
+	score += speed
+	show_score()
+	
+	
+func show_score ():
+	$HUD.get_node("ScoreLabel").text = "SCORE: " + str(score / Score_modifier)
 		
 func generate_obs():
 	if obstacles.is_empty() or last_obstacle.position.x < chechik.position.x + randi_range(-700, -500):
