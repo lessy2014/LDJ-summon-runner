@@ -47,7 +47,7 @@ func preset():
 	$Граунд.position = Vector2i(143,465)
 	remove_all_obstacles()
 	started = false
-	main_text.text = "press space to"
+	main_text.text = "press space to start"
 
 func new_game():
 	started = true
