@@ -62,7 +62,9 @@ func _process(delta):
 			remove_obstacle(obs)
 	if chechik.position.x - $"Граунд".position.x > screen_size.x:
 		$"Граунд".position.x += screen_size.x
-		
+	
+	if music.playing == false and speed != 0:
+		music.play()
 		# Warning Даша влезла
 	score += speed 
 	if (high_score <= score):
