@@ -81,7 +81,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_efloy")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 2.0
 }, {
@@ -173,7 +173,7 @@ z_index = 1
 position = Vector2(-0.999992, -43)
 scale = Vector2(4.5673, 3.48271)
 sprite_frames = SubResource("SpriteFrames_gnamk")
-animation = &"jump"
+animation = &"death"
 autoplay = "running"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chechik"]
