@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c1ay34olyl5cs"]
+[gd_scene load_steps=30 format=3 uid="uid://c1ay34olyl5cs"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1c4fk"]
 [ext_resource type="Script" path="res://Scripts/Chechik.gd" id="1_3abp3"]
@@ -11,7 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bt8cal7iiqp5k" path="res://Чечик/Running/чечик running-Sheet.png" id="8_yfckv"]
 [ext_resource type="Texture2D" uid="uid://c1sduil8gjb2v" path="res://чечик палку держит.png" id="9_y5667"]
 [ext_resource type="PackedScene" uid="uid://cauquano227ts" path="res://Scenes/hud.tscn" id="11_kmjxm"]
-[ext_resource type="Texture2D" uid="uid://pm5o33r362wa" path="res://Текстуры/стена2.png" id="12_bpx2u"]
+[ext_resource type="Texture2D" uid="uid://cnq4ckyt8rtus" path="res://Текстуры/фон1.png" id="12_tpi5q"]
+[ext_resource type="Texture2D" uid="uid://c30nkhbciht4g" path="res://Текстуры/фон2.png" id="13_krvxc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4j3g"]
 size = Vector2(2530, 198.5)
@@ -186,12 +187,15 @@ stream = ExtResource("4_t22e2")
 [node name="HUD" parent="." instance=ExtResource("11_kmjxm")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -476.0
-offset_right = 5308.0
-offset_bottom = -181.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("12_bpx2u")
+offset_left = 13.0
+offset_top = -554.0
+offset_right = 16317.0
+offset_bottom = 465.0
+texture = ExtResource("12_tpi5q")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 14.0
+offset_top = -554.0
+offset_right = 16510.0
+offset_bottom = 477.0
+texture = ExtResource("13_krvxc")
