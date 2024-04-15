@@ -96,7 +96,7 @@ func hit_rhino(body):
 	hit_obstacle(body)
 	if body.name == "Rhino":
 		last_obstacle.get_node("CollisionShape2D").set_deferred("disabled", true)
-		last_obstacle.get_node("Sprite2D").animation = "destruction"
+		last_obstacle.get_node("Sprite2D").animation = "Destruction"
 		
 func хит_мыш(body):
 	hit_obstacle(body)
