@@ -46,7 +46,7 @@ func _physics_process(delta):
 		await get_tree().create_timer(1).timeout
 		meduse.queue_free()
 		summons.erase(meduse)
-		sprite_2d.animation = "running"
+		running()
 		
 	if Input.is_action_just_pressed("ui_left") and is_on_floor() and main_scene.speed != 0:
 		velocity.y = JUMP_VELOCITY * 2
@@ -65,7 +65,7 @@ func _physics_process(delta):
 		velocity.x = 0
 		летучаямыш.queue_free()
 		summons.erase(летучаямыш)
-		sprite_2d.animation = "running"
+		running()
 		
 	if Input.is_action_just_pressed("ui_down") and is_on_floor() and main_scene.speed != 0:
 		if not мышмышужеползет:
@@ -101,7 +101,10 @@ func _physics_process(delta):
 			rhino_spawned = false
 			
 	if Input.is_action_just_pressed("ui_accept") and main_scene.speed == 0:
-		main_scene.new_game()
+		if main_scene.started == true:
+			main_scene.preset()
+		else:
+			main_scene.new_game()
 			
 			
 	move_and_slide()
@@ -109,6 +112,10 @@ func _physics_process(delta):
 func hit_meduse(body):
 	if body.name == "Chechik":
 		velocity.y = JUMP_VELOCITY * 3
+		
+func running():
+	if main_scene.speed != 0:
+		sprite_2d.animation = "running"
 		
 		
 

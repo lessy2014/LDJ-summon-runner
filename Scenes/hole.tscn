@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://blt4bc21bwrlh"]
 
-[ext_resource type="Texture2D" uid="uid://b1nci0wg5d2nl" path="res://Текстуры/вместо рампы.png" id="1_etwnf"]
+[ext_resource type="Texture2D" uid="uid://bbysdi348184t" path="res://Текстуры/вместо рампы.png" id="1_etwnf"]
 [ext_resource type="Texture2D" uid="uid://6opw8hahdgc5" path="res://Текстуры/Лава-Sheet-Sheet.png" id="2_xbol2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxa8y"]

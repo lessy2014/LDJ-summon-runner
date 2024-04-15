@@ -10,6 +10,7 @@ var obstacle_types = [jump_wall, hole, мышстенакродется, rhino_w
 const CHECHIK_START_POS := Vector2i(142, 438)
 
 var score : int 
+var started = false
 var high_score : int = 0
 const Score_modifier : int = 10
 var speed : float
@@ -17,6 +18,8 @@ const START_SPEED : float = 12.5
 const MAX_SPEED : int = 50
 var screen_size : Vector2i
 var obstacles : Array
+var hud
+var main_text
 var last_obstacle
 var chechik
 var music
@@ -27,19 +30,28 @@ var music
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Engine.max_fps = 60
+	hud = $HUD
+	main_text = hud.get_node("Space")
 	screen_size = get_window().size
-	new_game()
+	preset()
 
-func new_game():
+func preset():
 	score = 0
 	chechik = $Chechik
+	chechik.sprite_2d.play("running")
 	music = chechik.get_node("Music")
 	music.play()
 	chechik.position = CHECHIK_START_POS 
 	chechik.velocity = Vector2i(0,0)
 	$Граунд.position = Vector2i(143,465)
-	speed = START_SPEED
 	remove_all_obstacles()
+	started = false
+	main_text.text = "press boban to space"
+
+func new_game():
+	started = true
+	speed = START_SPEED
+	main_text.text = ""
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	chechik.position.x += speed
@@ -87,8 +99,10 @@ func remove_obstacle(obstacle):
 func hit_obstacle(body):
 	if body.name == "Chechik":
 		print("Collision")
+		chechik.sprite_2d.play("death")
 		music.stop()
 		speed = 0
+		main_text.text = "press space to restart"
 		print("Game over kind of")
 		print("Press space to restart")
 		
@@ -96,7 +110,7 @@ func hit_rhino(body):
 	hit_obstacle(body)
 	if body.name == "Rhino":
 		last_obstacle.get_node("CollisionShape2D").set_deferred("disabled", true)
-		last_obstacle.get_node("Sprite2D").animation = "destruction"
+		last_obstacle.get_node("Sprite2D").animation = "Destruction"
 		
 func хит_мыш(body):
 	hit_obstacle(body)
