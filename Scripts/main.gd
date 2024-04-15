@@ -9,7 +9,8 @@ var obstacle_types = [jump_wall, hole, мышстенакродется, rhino_w
 #База
 const CHECHIK_START_POS := Vector2i(142, 438)
 
-var score : int
+var score : int 
+var high_score : int = 0
 const Score_modifier : int = 10
 var speed : float
 const START_SPEED : float = 12.5
@@ -50,7 +51,9 @@ func _process(delta):
 		$"Граунд".position.x += screen_size.x
 		
 		# Warning Даша влезла
-	score += speed
+	score += speed 
+	if (high_score <= score):
+		high_score = score
 	show_score()
 	
 	
@@ -93,6 +96,7 @@ func hit_rhino(body):
 	hit_obstacle(body)
 	if body.name == "Rhino":
 		last_obstacle.get_node("CollisionShape2D").set_deferred("disabled", true)
+		last_obstacle.get_node("Sprite2D").animation = "destruction"
 		
 func хит_мыш(body):
 	hit_obstacle(body)
