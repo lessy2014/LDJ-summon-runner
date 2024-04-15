@@ -71,6 +71,7 @@ func _process(delta):
 	
 func show_score ():
 	$HUD.get_node("ScoreLabel").text = "SCORE: " + str(score / Score_modifier)
+	$HUD.get_node("Highscore").text = "HIGH SCORE: " + str(high_score / Score_modifier)
 		
 func generate_obs():
 	if obstacles.is_empty() or last_obstacle.position.x < chechik.position.x + randi_range(-700, -500):
