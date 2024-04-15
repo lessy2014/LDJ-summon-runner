@@ -38,6 +38,7 @@ size = Vector2(108, 45)
 position = Vector2(292, 429)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
 position = Vector2(38, -36)
 scale = Vector2(4.66064, 4.63721)
 sprite_frames = SubResource("SpriteFrames_bcyw1")

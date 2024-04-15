@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnn12v0tahjxn"]
 
-[ext_resource type="Texture2D" uid="uid://dpf8yenf58jvv" path="res://амогус.png" id="1_ly12y"]
+[ext_resource type="Texture2D" uid="uid://b6lie6j08bchg" path="res://Текстуры/Стенамедузапрыгать.png" id="1_rdlx3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rv20d"]
 size = Vector2(199, 259)
@@ -9,10 +9,10 @@ size = Vector2(199, 259)
 position = Vector2(520, 320)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.999512, -188.468)
+position = Vector2(-0.640533, -215.749)
 rotation = 3.14159
-scale = Vector2(1, 1.4845)
-texture = ExtResource("1_ly12y")
+scale = Vector2(11.9726, 13.5233)
+texture = ExtResource("1_rdlx3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.49951, -129.437)
