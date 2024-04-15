@@ -21,6 +21,7 @@ var obstacles : Array
 var hud
 var main_text
 var last_obstacle
+var last_obstacle_type
 var chechik
 var music
 
@@ -76,6 +77,9 @@ func show_score ():
 func generate_obs():
 	if obstacles.is_empty() or last_obstacle.position.x < chechik.position.x + randi_range(-700, -500):
 		var obstacle_type = obstacle_types[randi_range(0, obstacle_types.size() - 1)]
+		while(last_obstacle_type == obstacle_type):
+			obstacle_type = obstacle_types[randi_range(0, obstacle_types.size() - 1)]
+		last_obstacle_type = obstacle_type
 		var obstacle = obstacle_type.instantiate()
 		if (obstacle_type == rhino_wall):
 			obstacle.body_entered.connect(hit_rhino)
