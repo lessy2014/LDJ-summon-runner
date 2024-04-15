@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1c4fk"]
 [ext_resource type="Script" path="res://Scripts/Chechik.gd" id="1_3abp3"]
-[ext_resource type="Texture2D" uid="uid://co6cuuuv13cid" path="res://Текстуры/Пол512.png" id="2_pqbsh"]
+[ext_resource type="Texture2D" uid="uid://cc10xwkbe473g" path="res://Текстуры/Пол512.png" id="2_pqbsh"]
 [ext_resource type="Texture2D" uid="uid://dorohf83ni26f" path="res://Чечик/Death/Чечик death-Sheet.png" id="4_8sp1f"]
 [ext_resource type="Texture2D" uid="uid://bexu81lvejljn" path="res://Чечик/Чечик idle/Чечик idle-Sheet.png" id="4_81xiq"]
 [ext_resource type="AudioStream" uid="uid://cg2kwoy6522t4" path="res://пупа и лупа.mp3" id="4_t22e2"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnn12v0tahjxn"]
 
-[ext_resource type="Texture2D" uid="uid://dda037ho86phc" path="res://Текстуры/Стенамедузапрыгать.png" id="1_rdlx3"]
+[ext_resource type="Texture2D" uid="uid://b6lie6j08bchg" path="res://Текстуры/Стенамедузапрыгать.png" id="1_rdlx3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rv20d"]
 size = Vector2(199, 259)

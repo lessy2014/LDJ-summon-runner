@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bslyckgwp6vpu"]
 
 [ext_resource type="Script" path="res://Scripts/rhino_wall.gd" id="1_xtb66"]
-[ext_resource type="Texture2D" uid="uid://tmvp26b1v5cg" path="res://Текстуры/Стена ломаться.png" id="2_730ka"]
+[ext_resource type="Texture2D" uid="uid://bfmlinbm8qfqo" path="res://Текстуры/Стена ломаться.png" id="2_730ka"]
 [ext_resource type="Texture2D" uid="uid://tssr6wmdc5eo" path="res://Текстуры/стеналоматьсяаним-Sheet.png" id="2_a37qm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b8h6l"]
@@ -44,12 +44,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3uqut")
 }, {
-"duration": 1.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_b8h6l")
 }],
-"loop": false,
+"loop": true,
 "name": &"Destruction",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
